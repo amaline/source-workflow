@@ -3,7 +3,7 @@
   <process id="myProcess" name="My process" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
     <endEvent id="endevent1" name="End"></endEvent>
-    <serviceTask id="EmailTask1" name="Email Test" activiti:type="mail">
+    <serviceTask id="Source.EmailTask1" name="Email Test" activiti:type="mail">
       <extensionElements>
         <activiti:field name="subject">
           <activiti:string><![CDATA[Test email subject]]></activiti:string>
@@ -25,8 +25,8 @@ Hello, this is a test email
         </activiti:field>
       </extensionElements>
     </serviceTask>
-    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="EmailTask1"></sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="EmailTask1" targetRef="endevent1"></sequenceFlow>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="Source.EmailTask1"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="Source.EmailTask1" targetRef="endevent1"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_myProcess">
     <bpmndi:BPMNPlane bpmnElement="myProcess" id="BPMNPlane_myProcess">
@@ -36,7 +36,7 @@ Hello, this is a test email
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="450.0" y="223.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="EmailTask1" id="BPMNShape_EmailTask1">
+      <bpmndi:BPMNShape bpmnElement="Source.EmailTask1" id="BPMNShape_Source.EmailTask1">
         <omgdc:Bounds height="55.0" width="105.0" x="250.0" y="213.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
