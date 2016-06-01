@@ -3,7 +3,7 @@
   <process id="ScriptTask1" name="My process" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
     <endEvent id="endevent1" name="End"></endEvent>
-    <scriptTask id="ListChanges" name="List New ,Changed or Deleted Workflows" scriptFormat="javascript" activiti:autoStoreVariables="false">
+    <scriptTask id="ListChanges" name="List New , Modified or Deleted Workflows" scriptFormat="javascript" activiti:autoStoreVariables="false">
       <script>console.out("log test: Changed Workflows");
 def var scriptVar = 123;
 execution.setVariable("myVar",scriptVar);</script>
