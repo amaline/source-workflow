@@ -27,11 +27,11 @@
     </sequenceFlow>
     <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow6" sourceRef="mailtask1" targetRef="endevent1"></sequenceFlow>
-    <scriptTask id="scripttask1" name="Script Task" scriptFormat="javascript" activiti:autoStoreVariables="false"></scriptTask>
-    <sequenceFlow id="flow7" sourceRef="exclusivegateway1" targetRef="scripttask1">
+    <scriptTask id="RemoveWorkflowTask" name="Remove Workflow" scriptFormat="javascript" activiti:autoStoreVariables="false"></scriptTask>
+    <sequenceFlow id="flow7" sourceRef="exclusivegateway1" targetRef="RemoveWorkflowTask">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[{condition}=="approve"]]></conditionExpression>
     </sequenceFlow>
-    <sequenceFlow id="flow8" sourceRef="scripttask1" targetRef="endevent1"></sequenceFlow>
+    <sequenceFlow id="flow8" sourceRef="RemoveWorkflowTask" targetRef="endevent1"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_deleteWorkflowWorkflow">
     <bpmndi:BPMNPlane bpmnElement="deleteWorkflowWorkflow" id="BPMNPlane_deleteWorkflowWorkflow">
@@ -50,7 +50,7 @@
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="650.0" y="330.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="scripttask1" id="BPMNShape_scripttask1">
+      <bpmndi:BPMNShape bpmnElement="RemoveWorkflowTask" id="BPMNShape_RemoveWorkflowTask">
         <omgdc:Bounds height="55.0" width="105.0" x="450.0" y="280.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
