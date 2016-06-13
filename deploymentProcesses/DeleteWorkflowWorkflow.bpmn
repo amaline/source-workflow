@@ -27,7 +27,9 @@
     </sequenceFlow>
     <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow6" sourceRef="mailtask1" targetRef="endevent1"></sequenceFlow>
-    <scriptTask id="RemoveWorkflowTask" name="Remove Workflow" scriptFormat="javascript" activiti:autoStoreVariables="false"></scriptTask>
+    <scriptTask id="RemoveWorkflowTask" name="Remove Workflow" scriptFormat="javascript" activiti:autoStoreVariables="false">
+      <documentation>This workflow step will remove a workflow if approved.</documentation>
+    </scriptTask>
     <sequenceFlow id="flow7" sourceRef="exclusivegateway1" targetRef="RemoveWorkflowTask">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[{condition}=="approve"]]></conditionExpression>
     </sequenceFlow>
