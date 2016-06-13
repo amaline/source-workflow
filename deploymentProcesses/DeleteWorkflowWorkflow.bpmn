@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://source.fdic.gov">
-  <process id="deleteWorkflowWorkflow" name="Delete Workflow Process" isExecutable="true">
+  <process id="deleteWorkflowWorkflow" name="Delete Workflow" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
     <userTask id="usertask1" name="Approve Removal of Workflow"></userTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
@@ -10,7 +10,22 @@
     <sequenceFlow id="Approve" sourceRef="exclusivegateway1" targetRef="servicetask1">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[{condition}="approve"]]></conditionExpression>
     </sequenceFlow>
-    <serviceTask id="mailtask1" name="Mail Task" activiti:type="mail"></serviceTask>
+    <serviceTask id="mailtask1" name="Mail Task" activiti:type="mail">
+      <extensionElements>
+        <activiti:field name="to">
+          <activiti:string><![CDATA[amaline@fdic.gov]]></activiti:string>
+        </activiti:field>
+        <activiti:field name="from">
+          <activiti:string><![CDATA[workflow-removal@etbpoc.com]]></activiti:string>
+        </activiti:field>
+        <activiti:field name="subject">
+          <activiti:string><![CDATA[Workflow Removal Approval]]></activiti:string>
+        </activiti:field>
+        <activiti:field name="text">
+          <activiti:string><![CDATA[Do you approve of the workflow removal?]]></activiti:string>
+        </activiti:field>
+      </extensionElements>
+    </serviceTask>
     <sequenceFlow id="Reject" sourceRef="exclusivegateway1" targetRef="mailtask1">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[{condition}!="approve"]]></conditionExpression>
     </sequenceFlow>
